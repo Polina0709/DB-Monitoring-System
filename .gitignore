@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+
+# Docker
+*.log
+docker-data/
+pgdata/
+promdata/
+grafana_data/
+db_monitoring_system_pgdata/
+db_monitoring_system_promdata/
+db_monitoring_system_grafana_data/
+
+# OS files
+.DS_Store
+Thumbs.db

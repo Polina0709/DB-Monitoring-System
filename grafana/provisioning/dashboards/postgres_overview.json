@@ -1,0 +1,17 @@
+{
+  "id": null,
+  "title": "PostgreSQL Demo",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "timeseries",
+      "title": "DB App Requests/s",
+      "targets": [
+        { "expr": "rate(db_app_requests_total[1m])", "legendFormat": "req/s" }
+      ],
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 0 }
+    }
+  ],
+  "schemaVersion": 37,
+  "version": 1
+}
