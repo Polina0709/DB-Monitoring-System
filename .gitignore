@@ -1,11 +1,16 @@
 # Python
 __pycache__/
+*.py[cod]
 *.pyc
 *.pyo
 *.pyd
 *.egg-info/
 .env
 .venv
+*.pkl
+*.db
+dist/
+build/
 
 # IDE
 .vscode/
@@ -24,3 +29,41 @@ db_monitoring_system_grafana_data/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# === Logs ===
+logs/
+
+# === Docker ===
+*.pid
+docker-compose.override.yml
+*.tar
+
+# === Auth service ===
+auth/users.db
+auth/__pycache__/
+
+# === DB App ===
+db_app/__pycache__/
+db_app/*.sqlite
+
+# === Traffic Simulator ===
+traffic_simulator/__pycache__/
+
+# === Consumer ===
+consumer/__pycache__/
+
+# === Grafana ===
+grafana/data/
+grafana/plugins/
+
+# === Prometheus ===
+prometheus/data/
+
+# === Misc ===
+*.tmp
+

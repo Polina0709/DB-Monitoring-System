@@ -1,0 +1,162 @@
+{
+  "id": null,
+  "title": "System Overview",
+  "timezone": "browser",
+  "schemaVersion": 38,
+  "version": 2,
+  "refresh": "5s",
+  "panels": [
+    {
+      "id": 1,
+      "type": "timeseries",
+      "title": "Successful Logins (per minute)",
+      "description": "Кількість успішних логінів у Auth Service (logins/min)",
+      "targets": [
+        {
+          "expr": "rate(auth_successful_logins_total[5m]) * 60",
+          "legendFormat": "logins/min"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 2
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single" }
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Registered Users (Auth)",
+      "description": "Поточна кількість зареєстрованих користувачів у Auth Service",
+      "targets": [
+        {
+          "expr": "auth_registered_users"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "orientation": "horizontal",
+        "textMode": "value_and_name",
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center"
+      }
+    },
+    {
+      "id": 3,
+      "type": "timeseries",
+      "title": "Postgres Active Connections",
+      "description": "Сумарна кількість активних з’єднань до PostgreSQL",
+      "targets": [
+        {
+          "expr": "sum(pg_stat_activity_count)",
+          "legendFormat": "connections"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 8 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 0
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single" }
+      }
+    },
+    {
+      "id": 4,
+      "type": "timeseries",
+      "title": "Generator CPU Usage (%)",
+      "description": "Використання CPU генератором даних (метрика generator_cpu_usage_percent)",
+      "targets": [
+        {
+          "expr": "generator_cpu_usage_percent",
+          "legendFormat": "CPU %"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 8 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "decimals": 1
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single" }
+      }
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Operation Duration (ms)",
+      "description": "Середня тривалість операцій генератора даних (на базі histogram generator_operation_duration_seconds)",
+      "targets": [
+        {
+          "expr": "rate(generator_operation_duration_seconds_sum[5m]) / rate(generator_operation_duration_seconds_count[5m]) * 1000",
+          "legendFormat": "avg ms"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 16 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "ms",
+          "decimals": 2
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single" }
+      }
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Login Attempts Rate (per minute)",
+      "description": "Спроби логіну за хвилину (успішні + неуспішні)",
+      "targets": [
+        {
+          "expr": "rate(auth_login_attempts_total[5m]) * 60",
+          "legendFormat": "attempts/min"
+        }
+      ],
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 16 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "none",
+          "decimals": 2
+        },
+        "overrides": []
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "single" }
+      }
+    }
+  ]
+}
+

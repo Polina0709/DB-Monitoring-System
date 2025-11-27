@@ -13,13 +13,11 @@ services:
       - pgdata:/var/lib/postgresql/data
 
   auth:
-    image: python:3.11-slim
+    build: ./auth
     container_name: auth
-    working_dir: /app
+    working_dir: /app/auth
     volumes:
-      - ./auth:/app
-    command: >
-      bash -lc "pip install -r requirements.txt && uvicorn main:app --host 0.0.0.0 --port 7000"
+      - ./auth:/app/auth
     environment:
       JWT_SECRET: ${JWT_SECRET}
       JWT_ALGO: ${JWT_ALGO}
@@ -49,8 +47,8 @@ services:
     container_name: rabbitmq
     restart: unless-stopped
     ports:
-      - "5672:5672"      # AMQP
-      - "15672:15672"    # Web UI (http://localhost:15672)
+      - "5672:5672"
+      - "15672:15672"
 
   consumer:
     image: python:3.11-slim
@@ -102,6 +100,30 @@ services:
       - "3000:3000"
     depends_on:
       - prometheus
+
+  rabbitmq_exporter:
+    image: kbudde/rabbitmq-exporter
+    container_name: rabbitmq_exporter
+    restart: unless-stopped
+    environment:
+      RABBIT_URL: http://rabbitmq:15672
+      RABBIT_USER: guest
+      RABBIT_PASSWORD: guest
+    ports:
+      - "9419:9419"
+    depends_on:
+      - rabbitmq
+
+  traffic_simulator:
+    build: ./traffic_simulator
+    container_name: traffic_simulator
+    depends_on:
+      - auth
+      - db_app
+      - rabbitmq
+    ports:
+      - "8010:8000"
+      - "8011:8010"
 
 volumes:
   pgdata:

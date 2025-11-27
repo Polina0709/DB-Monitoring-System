@@ -10,3 +10,21 @@ scrape_configs:
   - job_name: "postgres"
     static_configs:
       - targets: ["postgres_exporter:9187"]
+
+  - job_name: "auth"
+    static_configs:
+      - targets: ["auth:7000"]
+
+  - job_name: "consumer"
+    static_configs:
+      - targets: ["consumer:9100"]
+
+  - job_name: "rabbitmq"
+    static_configs:
+      - targets: ["rabbitmq_exporter:9419"]
+
+  - job_name: "traffic_simulator"
+    static_configs:
+      - targets: [ "traffic_simulator:8010" ]
+
+
