@@ -246,11 +246,11 @@ curl http://localhost:8011
 - оновлення графіків Grafana
 
 ### Screenshots
-![Screenshot 2025-11-27 at 23.58.56.png](../Screenshot%202025-11-27%20at%2023.58.56.png)
-![Screenshot 2025-11-27 at 23.59.04.png](../Screenshot%202025-11-27%20at%2023.59.04.png)
+<img width="1294" height="777" alt="Screenshot 2025-11-27 at 23 58 56" src="https://github.com/user-attachments/assets/14ab7a9e-8092-4723-99fd-b2aae471ad5a" />
+<img width="1294" height="777" alt="Screenshot 2025-11-27 at 23 59 04" src="https://github.com/user-attachments/assets/6e92963b-d6e9-4c1f-8d5b-5ea539efd368" />
 
-![Screenshot 2025-11-27 at 23.58.42.png](../Screenshot%202025-11-27%20at%2023.58.42.png)
-![Screenshot 2025-11-27 at 23.58.49.png](../Screenshot%202025-11-27%20at%2023.58.49.png)
+<img width="1294" height="777" alt="Screenshot 2025-11-27 at 23 58 42" src="https://github.com/user-attachments/assets/5acca880-c75d-4c64-94a9-a3ff0b791dbe" />
+<img width="1294" height="777" alt="Screenshot 2025-11-27 at 23 58 49" src="https://github.com/user-attachments/assets/faa84635-516c-48ae-8080-3e0604bef461" />
 
 ### Виконані вимоги
 
