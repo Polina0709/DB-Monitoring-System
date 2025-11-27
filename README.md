@@ -99,8 +99,8 @@ db-monitoring-system/
 
 ### 1. Клонувати репозиторій
 ```bash
-git clone https://github.com/yourusername/db-monitoring-system.git
-cd db-monitoring-system
+git clone git@github.com:Polina0709/DB-Monitoring-System.git
+cd DB-Monitoring-System
 ```
 ### 2. Створити .env
 ```bash
