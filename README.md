@@ -144,42 +144,19 @@ docker compose down
 
 ### Основні Endpoints
 
-#### - Auth Service (http://localhost:7100)
-| Endpoint           | Опис                |
-| ------------------ | ------------------- |
-| **POST /register** | Реєстрація          |
-| **POST /login**    | Логін               |
-| **GET /metrics**   | Метрики авторизації |
-
-#### - DB App (http://localhost:8000)
-| Endpoint         | Опис                                            |
-| ---------------- | ----------------------------------------------- |
-| **GET /health**  | Перевірка статусу                               |
-| **GET /count**   | Підрахунок записів у БД (потрібен Bearer Token) |
-| **GET /metrics** | Метрики генератора + RabbitMQ + DB              |
-
-#### - Traffic Simulator (http://localhost:8010)
-| Endpoint           | Опис                         |
-| ------------------ | ---------------------------- |
-| **POST /run_test** | Запуск сценарію навантаження |
-| **GET /status**    | Статус поточного тесту       |
-| **GET (on 8011)**  | Метрики симулятора           |
-
-#### - Prometheus
-| Endpoint                                                       | Опис          |
-| -------------------------------------------------------------- | ------------- |
-| [http://localhost:9090](http://localhost:9090)                 | Web UI        |
-| [http://localhost:9090/targets](http://localhost:9090/targets) | Стан таргетів |
-
-#### - Grafana
-| URL                                            | Опис               |
-| ---------------------------------------------- | ------------------ |
-| [http://localhost:3000](http://localhost:3000) | Панель моніторингу |
-
-#### - PostgreSQL Exporter
-| URL                                                            | Опис               |
-| -------------------------------------------------------------- | ------------------ |
-| [http://localhost:9187/metrics](http://localhost:9187/metrics) | Метрики PostgreSQL |
+| Endpoint                                                                       | Опис                          |
+| ------------------------------------------------------------------------------ | ----------------------------- |
+| **[http://localhost:7100/register_page](http://localhost:7100/register_page)** | HTML-форма реєстрації         |
+| **[http://localhost:7100/login_page](http://localhost:7100/login_page)**       | HTML-форма логіну             |
+| **[http://localhost:7100/register](http://localhost:7100/register)**           | API-реєстрація (POST)         |
+| **[http://localhost:7100/login](http://localhost:7100/login)**                 | API-логін (POST)              |
+| **[http://localhost:7100/metrics](http://localhost:7100/metrics)**             | Метрики Auth Service          |
+| **[http://localhost:8000/metrics](http://localhost:8000/metrics)**             | Метрики DB App                |
+| **[http://localhost:8010/status](http://localhost:8010/status)**               | Статус Traffic Simulator      |
+| **[http://localhost:8010/run_test](http://localhost:8010/run_test)**           | Запуск тестового навантаження |
+| **[http://localhost:9090](http://localhost:9090)**                             | Prometheus UI                 |
+| **[http://localhost:3000](http://localhost:3000)**                             | Grafana Dashboard             |
+| **[http://localhost:15672](http://localhost:15672)**                           | RabbitMQ Management UI        |
 
 ### Конфігурація Prometheus
 
